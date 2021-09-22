@@ -35,8 +35,8 @@ def get_all_games_for_user(df, user):
     return result
 
 
-test = load_excel_file('Pref.xlsx', sheet_name='Результаты')
+test1 = load_excel_file('Pref.xlsx', sheet_name='Результаты')
 
-df = get_data_frame(test)
+df = get_data_frame(test1)
 # print(get_rows_by_bullet_range(df, 10))
 print(get_all_games_for_user(df, 'Целый'))
