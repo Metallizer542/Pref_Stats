@@ -63,9 +63,12 @@ def get_user_scores_and_dates_by_bulletRange(df, user, bullet):
 
 
 def get_count_of_games_for_user_by_bulletRange(df, user, bullet):
+    counts=[]
     all_scores = get_all_stats_for_user_by_bulletRange(df, user, bullet)
     count_of_games = list(all_scores['Дата игры'])
-    return len(count_of_games)
+    for x in range(0, len(count_of_games)):
+        counts.append(x+1)
+    return counts
 
 
 test1 = load_excel_file('Pref.xlsx', sheet_name='Результаты')
