@@ -14,7 +14,7 @@ def get_average_median_value(data):
 
 
 def get_standard_deviation(data):
-    return (np.std(data)^2
+    return np.std(data)
 
 
 def get_expected_value(data):
