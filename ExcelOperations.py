@@ -62,6 +62,12 @@ def get_user_scores_and_dates_by_bulletRange(df, user, bullet):
     return scores_by_date_and_user
 
 
+def get_count_of_games_for_user_by_bulletRange(df, user, bullet):
+    all_scores = get_all_stats_for_user_by_bulletRange(df, user, bullet)
+    count_of_games = list(all_scores['Дата игры'])
+    return len(count_of_games)
+
+
 test1 = load_excel_file('Pref.xlsx', sheet_name='Результаты')
 
 df = get_data_frame(test1)
@@ -72,11 +78,14 @@ df = get_data_frame(test1)
 # dates = get_game_dates(df)
 
 
-score = get_user_scores_by_bulletRange(df, 'Целый', '15')
-games_and_scores = get_user_scores_and_dates_by_bulletRange(df, 'Целый', '20')
+score = get_user_scores_by_bulletRange(df, 'Целый', '10')
+games_and_scores = get_user_scores_and_dates_by_bulletRange(df, 'Целый', '15')
 # MathOperations.print_plot(pd.DataFrame(games_and_scores)))
-print(MathOperations.get_standard_deviation(score))
-print(MathOperations.get_expected_value(score))
-print(MathOperations.get_average_median_value(score))
+
+print(get_count_of_games_for_user_by_bulletRange(df, 'Целый', '20'))
+
+# print(MathOperations.get_standard_deviation(score))
+# print(MathOperations.get_expected_value(score))
+# print(MathOperations.get_average_median_value(score))
 # print(MathOperations.get_average_median_value(score))
 # print(get_game_dates(df))
