@@ -63,12 +63,13 @@ def get_user_scores_and_dates_by_bulletRange(df, user, bullet):
 
 
 def get_count_of_games_for_user_by_bulletRange(df, user, bullet):
-    counts=[]
+    counts = []
     all_scores = get_all_stats_for_user_by_bulletRange(df, user, bullet)
     count_of_games = list(all_scores['Дата игры'])
     for x in range(0, len(count_of_games)):
-        counts.append(x+1)
-    return counts
+        counts.append(x + 1)
+    all_scores['Количество игр'] = counts
+    return all_scores
 
 
 test1 = load_excel_file('Pref.xlsx', sheet_name='Результаты')
@@ -85,7 +86,7 @@ score = get_user_scores_by_bulletRange(df, 'Целый', '10')
 games_and_scores = get_user_scores_and_dates_by_bulletRange(df, 'Целый', '15')
 # MathOperations.print_plot(pd.DataFrame(games_and_scores)))
 
-print(get_count_of_games_for_user_by_bulletRange(df, 'Целый', '20'))
+print(get_count_of_games_for_user_by_bulletRange(df, 'Целый', '10'))
 
 # print(MathOperations.get_standard_deviation(score))
 # print(MathOperations.get_expected_value(score))
