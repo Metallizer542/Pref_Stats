@@ -36,6 +36,11 @@ def get_rows_by_bullet_range(df, bulletrange):
     return result
 
 
+def remove_nan_value_from_table(df, user):
+    table_without_nan = df[~df[user].isnull()]
+    return table_without_nan
+
+
 def get_all_games_for_user(df, user):
     temp_table_without_Nan = df[~df[user].isnull()]
     temp_dataframe = get_data_frame(pd.DataFrame(temp_table_without_Nan))
@@ -82,14 +87,14 @@ df = get_data_frame(test1)
 # dates = get_game_dates(df)
 
 
-score = get_user_scores_by_bulletRange(df, 'Целый', '10')
-games_and_scores = get_user_scores_and_dates_by_bulletRange(df, 'Целый', '15')
-# MathOperations.print_plot(pd.DataFrame(games_and_scores)))
+bulletRange = 10
 
-print(get_count_of_games_for_user_by_bulletRange(df, 'Целый', '10'))
+users = get_users(df)
+# score = get_user_scores_by_bulletRange(df, user, bulletRange)
+# games_and_scores = get_userscores_and_dates_by_bulletRange(df, user, bulletRange)
 
+# MathOperations.print_plot()
 # print(MathOperations.get_standard_deviation(score))
 # print(MathOperations.get_expected_value(score))
-# print(MathOperations.get_average_median_value(score))
 # print(MathOperations.get_average_median_value(score))
 # print(get_game_dates(df))

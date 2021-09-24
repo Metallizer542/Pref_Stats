@@ -25,5 +25,6 @@ def print_plot(dataframe):
     data = dataframe
     df = pd.DataFrame(data)
     columns = list(df.head())
-    df.plot(x=columns[0], y=columns[1], kind='scatter', color='red', figsize=(15, 5))
+    print(columns)
+    df.plot(x=columns[0], y=[columns[1], columns[2]], kind='bar', figsize=(10, 5))
     plt.show()
